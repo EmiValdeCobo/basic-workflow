@@ -1,0 +1,24 @@
+name: C++ Basic Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Descarga el código del repositorio
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Compila el archivo C++
+      - name: Compile C++ program
+        run: g++ main.cc -o hola_mundo
+
+      # Ejecuta el programa compilado
+      - name: Run program
+        run: ./hola_mundo
